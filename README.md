@@ -43,8 +43,8 @@ Proyek ini bertujuan untuk menganalisis, mengelompokkan (clustering), dan mempre
 
 1. **Clone Repositori ini:**
    ```bash
-   git clone https://github.com/USERNAME-ANDA/NAMA-REPO-ANDA.git
-   cd NAMA-REPO-ANDA
+   git clone https://github.com/24611028/24611028_RevaRahmaddani_-UAS_IRAS_MPML.git
+   cd 24611028_RevaRahmaddani_-UAS_IRAS_MPML
    ```
 
 2. **Install Dependensi:**
