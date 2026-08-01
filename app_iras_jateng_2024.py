@@ -243,10 +243,23 @@ st.markdown("""
 # 4. Load Data & Model Assets
 @st.cache_data
 def load_dataset():
-    path = "Dataset/Dataset_Kemiskinan_Stunting_JawaTengah_2024.xlsx"
-    if not os.path.exists(path):
-        path = "Dataset_Kemiskinan_Stunting_JawaTengah_2024.xlsx"
-    df = pd.read_excel(path, sheet_name='Data_Jateng_2024')
+    paths = [
+        "Dataset/Dataset_Kemiskinan_Stunting_JawaTengah_2024.xlsx",
+        "Dataset_Kemiskinan_Stunting_JawaTengah_2024.xlsx"
+    ]
+    target_path = None
+    for p in paths:
+        if os.path.exists(p):
+            target_path = p
+            break
+    if target_path is None:
+        raise FileNotFoundError("File Dataset_Kemiskinan_Stunting_JawaTengah_2024.xlsx tidak ditemukan di folder repositori.")
+    
+    try:
+        df = pd.read_excel(target_path, sheet_name='Data_Jateng_2024')
+    except Exception:
+        df = pd.read_excel(target_path)
+
     df.columns = [
         "kode_wilayah", "kabupaten_kota", "persentase_penduduk_miskin",
         "prevalensi_stunting", "ipm", "pengeluaran_per_kapita",
